@@ -4,4 +4,4 @@ A wrapper for the [TomTom Business Webfleet.connect API](https://business.tomtom
 
 ## Requirements
 - a TomTom Business account
-- PHP 7+
+- PHP 7.1+

@@ -1,6 +1,6 @@
 {
 	"name": "chillerlan/php-webfleet",
-	"description": "A wrapper for the TomTom Business Webfleet.connect API. PHP 7+",
+	"description": "A wrapper for the TomTom Business Webfleet.connect API. PHP 7.1+",
 	"homepage": "https://github.com/codemasher/php-webfleet",
 	"license": "MIT",
 	"type": "library",
@@ -14,7 +14,7 @@
 		}
 	],
 	"require": {
-		"php": ">=7.0.3",
+		"php": ">=7.1",
 		"chillerlan/php-curl": "^1.0"
 	},
 	"require-dev": {

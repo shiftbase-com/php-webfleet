@@ -79,7 +79,16 @@ class WebfleetEndpoint extends WebfleetConnect{
 
 			}
 
-			return $this->http->request($params);
+			unset($params['username'], $params['password']);
+
+			$headers       = [];
+			$authorization = $this->options->getBasicAuthHeader();
+
+			if($authorization !== null){
+				$headers['Authorization'] = $authorization;
+			}
+
+			return $this->http->request($params, 'GET', null, $headers);
 		}
 
 		throw new WebfleetException('method does not exist in class "'.$this->endpoint.'": '.$method);

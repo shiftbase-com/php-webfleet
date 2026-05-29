@@ -124,4 +124,20 @@ class WebfleetOptions extends Container{
 	 */
 	protected $separator;
 
+	/**
+	 * Builds the HTTP Basic Auth header value (RFC 7617) from the
+	 * configured user name and password, or null if either is missing or empty.
+	 *
+	 * @return string|null
+	 */
+	public function getBasicAuthHeader():?string{
+
+		if($this->username === null || $this->username === ''
+			|| $this->password === null || $this->password === ''){
+			return null;
+		}
+
+		return 'Basic '.base64_encode($this->username.':'.$this->password);
+	}
+
 }

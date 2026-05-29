@@ -46,7 +46,9 @@ class TinyCurlClient extends HTTPClientAbstract{
 	public function request(array $params = [], string $method = 'GET', $body = null, array $headers = []):WebfleetResponse{
 
 		try{
-			$url = new URL(self::API_BASE, $params, $method, $body, $this->normalizeHeaders($headers));
+			// Headers are normalized once by the underlying Request::fetch();
+			// normalizing here too would double the header prefix.
+			$url = new URL(self::API_BASE, $params, $method, $body, $headers);
 		}
 		catch(URLException $e){
 			throw new WebfleetException('invalid URL: '.$e->getMessage());
